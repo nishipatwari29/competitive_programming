@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        set<int> seen;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(seen.find(nums[i])!=seen.end())
+               return nums[i];
+            else seen.insert(nums[i]);
+        }
+        return 0;
+    }
+};
+
+ALT SOLN
+
+FLOYD HARE AND TORTOISE CYCLE DETECTION METHOD
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int hare=nums[0],tortoise=nums[0];
+        do
+        {
+            hare=nums[nums[hare]];
+            tortoise=nums[tortoise];
+        }while(hare!=tortoise);
+        tortoise=nums[0];
+        while(hare!=tortoise)
+        {
+            hare=nums[hare];
+            tortoise=nums[tortoise];
+        }
+        return hare;
+    }
+};
