@@ -1,0 +1,26 @@
+class Solution {
+public
+    int maxArea(vectorint& height) {
+        int f=0,l=height.size()-1;
+        int area=0,max=0;
+        while(fl)
+        {
+            if(height[f]height[l])
+            area=height[f](l-f);
+            else
+            {
+                area=height[l](l-f);
+            }
+            if(maxarea)
+            max=area;
+
+            if(height[f]height[l])
+            f++;
+            else
+            {
+                l--;
+            }
+        }
+        return max;
+    }
+};
